@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test: lenguajes de programacion</title>
+</head>
+<body>
+
+	<p>Selecciona 1 y presiona continuar.</p>
+
+{% if ronda < 1 %}
+	<form action="../{{ siguiente_ronda }}" >
+{% elif ronda = 1 %}
+	<form action="../../resultado/">
+{% endif %}
+
+	{% for dato in datos %}
+		<input type="radio" name="{{ formname }}" value="{{ dato.id }}">{{ dato }}</input><br/>
+		{% if dato.descripcion %}
+			<p style="width: 500px;">{{ dato.descripcion }}</p>
+		{% endif %}
+	{% endfor %}
+	<input type="submit" value="Continuar">
+	</form>
+
+</body>
+</html>
